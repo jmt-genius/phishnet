@@ -1,0 +1,11 @@
+{
+    "contractAddress": "0xABC...",
+    "riskLevel": "High",
+    "vulnerabilities": [
+        "Reentrancy in withdraw()",
+        "Owner can drain funds",
+        "Missing input validation"
+    ],
+    "reporter": "anonymous"
+}
+
