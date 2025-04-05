@@ -2,7 +2,7 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import '../assets/tailwind.css'
 import Popup from "./popup";
-
+import "../styles/globals.css";
 function init() {
     const appContainer = document.createElement('div')
     document.body.appendChild(appContainer)
