@@ -1,0 +1,77 @@
+/* Custom variables */
+:root {
+  --phishnet: #3b82f6;
+  --background: #1a1a1a;
+  --secondary: #2a2a2a;
+}
+
+/* Reset styles for the container */
+#scamsniffer-security-check {
+  all: initial;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Ensure our styles take precedence */
+#scamsniffer-security-check * {
+  box-sizing: border-box;
+}
+
+/* Base styles for the popup */
+.fixed {
+  position: fixed;
+}
+
+.inset-0 {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.z-50 {
+  z-index: 2147483647;
+}
+
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.bg-black {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.bg-secondary {
+  background-color: var(--secondary);
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.shadow-xl {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Animation for the popup */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+#scamsniffer-security-check .popup-container {
+  animation: fadeIn 0.2s ease-out;
+}
