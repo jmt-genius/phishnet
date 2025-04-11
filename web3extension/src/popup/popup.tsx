@@ -1,12 +1,23 @@
-import React from "react";
-import './popup.css'
+import React, { useState } from 'react';
+import TabNavigation from '../components/TabNavigation';
+import MenuTab from '../components/MenuTab';
+import ContractAnalysisTab from '../components/ContractAnalysisTab';
+import ReportTab from '../components/ReportTab';
 
-const Popup = () => {
-    return (
-        <div>
-            <h1 className="text-4xl text-green-500">Hello World</h1>
-        </div>
-    )
+const Index = () => {
+  const [activeTab, setActiveTab] = useState('menu');
+
+  return (
+    <div className="min-h-screen flex flex-col overflow-y-auto phishnet-gradient">
+      <div className="flex-grow overflow-y-auto pb-16">
+        {activeTab === 'menu' && <MenuTab />}
+        {activeTab === 'contract' && <ContractAnalysisTab />}
+        {activeTab === 'report' && <ReportTab />}
+      </div>
+      
+      <TabNavigation activeTab={activeTab} setActiveTab={setActiveTab} />
+    </div>
+  );
 };
 
-export default Popup;
+export default Index;
