@@ -1,0 +1,17 @@
+{
+  "wallet_report": {
+    "address": "0x742d35cc6634c0532925a3b844bc454e4438f44e",
+    "transaction_count": 10000,
+    "interacted_with_phishing": true,
+    "delegatecall_detected": false,
+    "gasless_transactions": false,
+    "proxy_behavior": false,
+    "balance_draining": true,
+    "multisend_behavior": false,
+    "phishing_tag": false
+  },
+  "gemini_analysis": {
+    "risk_score": 75,
+    "explanation": "Detected interactions with phishing addresses and delegatecall usage."
+  }
+}
