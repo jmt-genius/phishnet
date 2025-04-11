@@ -1,4 +1,178 @@
-body {
-    height: 400px;
-    width: 400px;
+/* General Styles */
+.popup-container {
+    background-color: #211212;
+    color: white;
+    font-family: 'inter', sans-serif; /* Ensure the Hexa Bold font is applied */
+    padding: 20px;
+    height : 600px;
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 20px;
+    font-family: 'Hexa bold', sans-serif; /* Ensure the Hexa Bold font is applied */
+}
+
+.description {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.contract-address-input {
+    width: 80%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #E51A1A;
+    margin-bottom: 20px;
+    font-size: 16px;
+    outline: none;
+    background-color: #2e2e2e;
+    color: white;
+}
+
+.contract-address-input:focus {
+    border-color: #E51A1A;
+}
+
+/* Switch Styles */
+.switch-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    border-radius: 50%;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+}
+
+input:checked + .slider {
+    background-color: #E51A1A;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Analyze Button Styles */
+.analyze-button {
+    background-color: #E51A1A;
+    color: white;
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    width: 80%;
+    transition: background-color 0.3s ease;
+    border-radius: 10px;
+}
+
+.analyze-button:hover {
+    background-color: #D41A1A;
+}
+
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;  /* Ensures equal spacing between buttons */
+    background-color: #472424; /* Updated navbar color */
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding-right: 50px;
+    padding-left: 40px;
+}
+
+.navbar button {
+    color: white;
+    background-color: #472424; /* Updated button color */
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.navbar button:hover {
+    background-color: #3c1a1a;
+}
+
+/* Add separation line between sections */
+.section-separator {
+    height: 1px;
+    background-color: white;
+    margin: 20px 0;
+}
+
+/* Checkbox Container */
+.checkbox-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+/* Analysis Result Styles */
+.analysis-result {
+    margin-top: 20px;
+    background-color: #333;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: left;
+    max-height: 300px;
+    overflow-y: auto;
+    font-family: monospace;
+}
+
+.analysis-result h2 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.analysis-result pre {
+    font-size: 0.9rem;
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
