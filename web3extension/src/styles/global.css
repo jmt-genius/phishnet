@@ -1,0 +1,97 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 6%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 6%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 355 76% 59%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 70%;
+
+    --accent: 345 76% 59%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 15%;
+    --input: 0 0% 12%;
+    --ring: 355 76% 59%;
+
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-phishnet-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  input[type="text"], input[type="url"] {
+    @apply bg-muted text-foreground outline-none ring-0 focus-visible:ring-1 focus-visible:ring-phishnet;
+  }
+}
+
+@layer utilities {
+  .phishnet-shadow {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  }
+  
+  .phishnet-gradient {
+    background: linear-gradient(145deg, #1A0A0A 0%, #0F0606 100%);
+  }
+  
+  .phishnet-nav-active {
+    @apply bg-phishnet bg-opacity-20 text-phishnet font-medium animate-pulse-glow;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+}
+
+/* For the extension popup size */
+html, body, #root {
+  width: 400px;
+  height: 600px;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 0 auto;
+}
+
+/* Ensure content doesn't get hidden behind the navbar */
+.page-content {
+  padding-bottom: 70px;
+}
