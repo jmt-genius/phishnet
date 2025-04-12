@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const { Pool } = require('pg');
+const crypto = require('crypto');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -51,8 +52,11 @@ app.get('/api/check-url', async (req, res) => {
 // Report suspicious URL endpoint
 app.post('/api/report', async (req, res) => {
   const { url, ipAddress, cause } = req.body;
-  
+
   try {
+    // Hash the IP address
+    const hashedIp = crypto.createHash('sha256').update(ipAddress).digest('hex');
+
     // First check if URL already exists
     const existingUrl = await pool.query(
       'SELECT * FROM risk WHERE url = $1',
@@ -70,7 +74,7 @@ app.post('/api/report', async (req, res) => {
     // If URL doesn't exist, insert it
     const result = await pool.query(
       'INSERT INTO risk (url, score, ip_address, cause) VALUES ($1, $2, $3, $4) RETURNING *',
-      [url, 0.0, ipAddress, cause] 
+      [url, 0.0, hashedIp, cause] 
     );
     res.json({ success: true, data: result.rows[0] });
   } catch (error) {
